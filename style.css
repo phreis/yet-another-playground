@@ -1,0 +1,16 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: tomato;
+  border-style: solid;
+}
+
+.bold {
+  font-weight: bold;
+}
