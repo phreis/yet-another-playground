@@ -1,19 +1,32 @@
-let counterState = 0;
+import { Component } from "../component.js";
+
+class Counter extends Component {
+
+  constructor() {
+    super();
+    this.counterState = 0;
+  }
+
+
+  html() {
+    return `
+    <button class='button'>click here! </button>
+    <div class='counter-value'>0</div>
+  `;
+  }
+
+  js(componentDom) {
+    console.log('ID: ', this.id)
+
+    const btn1 = componentDom.querySelector('.button')
+    btn1.addEventListener('click', () => { componentDom.querySelector(`.counter-value`).innerHTML = ++this.counterState });
+
+  }
 
 
 
-const Counter =
-  `<div>
-  <button id='btn1'>click here!</button>
-  <div id='counter-value'>0</div>
-</div>
-`;
-
-const CounterJs = function () {
-  const btn1 = document.querySelector('#btn1')
-  btn1.addEventListener('click', () => { document.querySelector('#counter-value').innerHTML = ++counterState });
 }
 
 
 
-export { Counter, CounterJs };
+export { Counter };

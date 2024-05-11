@@ -1,14 +1,7 @@
-
-
-import { CounterClass } from "./components/counterClass.js";
-
-
-const header = document.querySelector('header');
-header.innerHTML = 'hugo';
-header.className = 'bold';
+import { Counter } from "./components/counter.js";
 
 const mainContent = document.querySelector('.main-content')
 
-
-CounterClass.insertInto(mainContent)
-CounterClass.insertInto(mainContent)
+//creates two independent counter instances
+mainContent && Counter.insertInto(mainContent)
+mainContent && Counter.insertInto(mainContent)
