@@ -36,7 +36,7 @@ class Component {
     cmpInstance.props = props;
 
     //Instead of .innerHTML, use .insertAdjacentHTML to preserve event listeners
-    target.insertAdjacentHTML('beforeend', this.#wrapInDiv(cmpInstance));
+    target.insertAdjacentHTML('beforeend', cmpInstance.#wrapInDiv(cmpInstance));
 
     //excecutes the js defined in the concrete component ()
     //the componets DOM HTML is passed as parameter, so js can operate on it
@@ -52,7 +52,7 @@ class Component {
    * @param {Component} cmpInstance Component instance
    * @returns {String}
    */
-  static #wrapInDiv(cmpInstance) {
+  #wrapInDiv(cmpInstance) {
     return `<div id='${cmpInstance.id}'>${cmpInstance.html()}</div>`;
   }
 

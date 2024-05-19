@@ -15,10 +15,10 @@ class CounterContainer extends Component {
   }
 
   js(componentDom) {
-    console.log('ID: ', this.id)
+
 
     const container = componentDom.querySelector('.counter-container')
-    for (let i = 1; i <= 10; i++) { Counter.insertInto(container); }
+    for (let i = 1; i <= 5; i++) { Counter.insertInto(container); }
 
   }
 
