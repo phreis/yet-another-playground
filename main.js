@@ -2,6 +2,7 @@ import { Counter } from "./components/counter.js";
 import { CounterContainer } from "./components/counterContainer.js";
 import { CounterOuterState } from "./components/counterOuterState.js";
 import { CounterOuterStateContainer } from "./components/counterOuterStateContainer.js";
+import { ToDoApp } from "./components/todo/todo.js";
 
 const mainContent = document.querySelector('.main-content')
 
@@ -14,3 +15,4 @@ const mainContent = document.querySelector('.main-content')
 
 //
 mainContent && CounterOuterStateContainer.insertInto(mainContent, { caption: 'I am a container which holds my childrens states' })
+mainContent && ToDoApp.insertInto(mainContent)
