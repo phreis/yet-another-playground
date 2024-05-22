@@ -16,6 +16,6 @@ to tinker around with mostly vanilla JavaScript and CSS.
 
 `pnpm dev`
 
-Starts local development server. On each file change the affected file are rebuild into the build bundle. The browser automatically refreshes.
+Starts a local development server. On each file change, the affected file(s) are rebuild into the bundle. The browser automatically refreshes.
 
-Open [http://localhost:3000](http://localhost:8080) in your browser.
+Open [http://localhost:8080](http://localhost:8080) in your browser.
