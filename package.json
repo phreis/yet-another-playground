@@ -5,12 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "esbuild main.js --bundle --loader:.html=text --outdir=./build"
+    "build": "esbuild main.js --bundle --loader:.html=text --outdir=./build --watch",
+    "dev": "./node_modules/.bin/live-server & pnpm build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "esbuild": "0.20.2"
+    "esbuild": "0.20.2",
+    "live-server": "1.2.2"
   }
 }
