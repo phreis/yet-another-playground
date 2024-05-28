@@ -1,12 +1,12 @@
-import { Component } from "../../component.js";
+import { Component } from '../../component.js';
 // @ts-ignore
-import html from './todo.html'
+import html from './todo.html';
 
 class ToDoApp extends Component {
-
+  //toDos = [];
   constructor() {
     super();
-    this.toDos = []
+    this.toDos = [];
 
   }
 
@@ -20,29 +20,55 @@ class ToDoApp extends Component {
 
 
     </ul>
-    `; sdf*/
+    `; */
     return html;
   }
 
-  js(componentDom) {
+  addToDo(text) {
 
-    const form = componentDom.querySelector('.todo-form')
-    form.addEventListener('submit', (event) => {
-      const input = componentDom.querySelector('.todo-input').value
-      const li = document.createElement("li");
-      const t = document.createTextNode(input);
-      li.appendChild(t);
-      const toDoList = componentDom.querySelector('.todo-list');
-      toDoList.appendChild(li)
+    if (this.toDos.includes(text)) {
+      throw 'toDo already exists'
+    }
 
-      this.toDos.push(input)
-      console.log(new FormData(event.target).getAll('todo'))
-
-      event.preventDefault();
+    /*delete Button */
+    const deleteButton = document.createElement('button');
+    const deleteButtonText = document.createTextNode('X');
+    deleteButton.appendChild(deleteButtonText);
+    deleteButton.addEventListener('click', (event) => {
+      const itemToBeDeleted = deleteButton.closest('li');
+      itemToBeDeleted?.remove();
     })
 
+    /*List Element */
+    const li = document.createElement('li');
+    const t = document.createTextNode(text);
+    li.appendChild(t);
+    li.appendChild(deleteButton);
+
+    /*attach List Element to List */
+    const toDoList = this.componentHTML.querySelector('.todo-list');
+    toDoList.appendChild(li);
 
 
+
+    this.toDos.push(text);
+  }
+
+  run() {
+    const form = this.componentHTML.querySelector('.todo-form');
+    form.addEventListener('submit', (event) => {
+
+      event.preventDefault();
+
+      const input = this.componentHTML.querySelector('input[name="todo"]');
+      try {
+        this.addToDo(input.value);
+      } catch (err) {
+        alert(err);
+      }
+
+      input.value = '';
+    });
   }
 }
 

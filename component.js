@@ -4,8 +4,10 @@
 */
 class Component {
   props = {};
+  componentHTML;
   constructor() {
     this.id = Date.now().toString(36) + Math.random().toString(36).substring(2);
+
 
   }
 
@@ -19,9 +21,8 @@ class Component {
 
   /** Contains the JavaScript code which goes together with the component
    * @abstract to be implemented in concrete component
-   * @param {Element} componentHTML  a concrete component instance
    */
-  js(componentHTML) { }
+  run() { }
 
   /**
    * Instantiates the concrete component and
@@ -42,8 +43,11 @@ class Component {
     //the componets DOM HTML is passed as parameter, so js can operate on it
 
     const _cmpDom = document.querySelector(`#${cmpInstance.id}`)
-    _cmpDom && cmpInstance.js(_cmpDom);
-    // TODO: Error handling in case of _cmpDom is null
+    if (_cmpDom) {
+      cmpInstance.componentHTML = _cmpDom;
+      cmpInstance.run();
+    }
+
   }
 
 

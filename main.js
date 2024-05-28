@@ -14,5 +14,5 @@ const mainContent = document.querySelector('.main-content')
 //mainContent && CounterContainer.insertInto(mainContent, { caption: 'I am a container!' })
 
 //
-mainContent && CounterOuterStateContainer.insertInto(mainContent, { caption: 'I am a container which holds my childrens states' })
+//mainContent && CounterOuterStateContainer.insertInto(mainContent, { caption: 'I am a container which holds my childrens states' })
 mainContent && ToDoApp.insertInto(mainContent)
