@@ -16,9 +16,9 @@ class Counter extends Component {
   `;
   }
 
-  js(componentDom) {
-    const btn1 = componentDom.querySelector('.button')
-    btn1.addEventListener('click', () => { componentDom.querySelector(`.counter-value`).innerHTML = ++this.counterState });
+  run() {
+    const btn1 = this.componentHTML.querySelector('.button')
+    btn1.addEventListener('click', () => { this.componentHTML.querySelector(`.counter-value`).innerHTML = ++this.counterState });
 
   }
 }

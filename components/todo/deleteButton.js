@@ -10,19 +10,18 @@ class DeleteButton extends Component {
 
   html() {
     return `
-    <form class='todo-form' >
-        <input name='todo' class='todo-input'></input>
-        <input type='submit' value='Add ToDo'></input>
-    </form>
-    <ul class='todo-list'>
-
-
-    </ul>
+<button class='delete-button'>X</button>
     `;
   }
 
-  js(componentDom) {
-
+  run() {
+    const deleteButton = this.componentHTML.querySelector('.delete-button')
+    deleteButton.addEventListener('click', (event) => {
+      const itemToBeDeleted = deleteButton.closest('li');
+      itemToBeDeleted?.remove();
+    })
   }
 
 }
+
+export { DeleteButton }

@@ -16,7 +16,7 @@ class Component {
    * @returns {String} HTML
    */
   html() {
-    return '<p>To be implemented in concrete component'
+    return '<p>To be implemented in concrete component</p>'
   }
 
   /** Contains the JavaScript code which goes together with the component
@@ -36,28 +36,20 @@ class Component {
 
     cmpInstance.props = props;
 
+    const div = document.createElement('span')
+    /*set an unique id on the components HTML*/
+    //div.setAttribute('id', cmpInstance.id);
+    div.innerHTML = cmpInstance.html();
+
     //Instead of .innerHTML, use .insertAdjacentHTML to preserve event listeners
-    target.insertAdjacentHTML('beforeend', cmpInstance.#wrapInDiv(cmpInstance));
+    cmpInstance.componentHTML = target.insertAdjacentElement('beforeend', div);
 
     //excecutes the js defined in the concrete component ()
-    //the componets DOM HTML is passed as parameter, so js can operate on it
-
-    const _cmpDom = document.querySelector(`#${cmpInstance.id}`)
-    if (_cmpDom) {
-      cmpInstance.componentHTML = _cmpDom;
-      cmpInstance.run();
-    }
-
-  }
+    cmpInstance.run();
 
 
-  /**
-   *
-   * @param {Component} cmpInstance Component instance
-   * @returns {String}
-   */
-  #wrapInDiv(cmpInstance) {
-    return `<div id='${cmpInstance.id}'>${cmpInstance.html()}</div>`;
+
+
   }
 
 }

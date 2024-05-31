@@ -17,14 +17,14 @@ class CounterOuterState extends Component {
   `;
   }
 
-  js(componentDom) {
-    const btn1 = componentDom.querySelector('.button');
-    componentDom.querySelector(`.counter-value`).innerHTML = this.props.counterState;
+  run() {
+    const btn1 = this.componentHTML.querySelector('.button');
+    this.componentHTML.querySelector(`.counter-value`).innerHTML = this.props.counterState;
 
     btn1.addEventListener('click', () => {
       ++this.counterState;
       this.props.onIncrementCounter(this.counterState)
-      componentDom.querySelector(`.counter-value`).innerHTML = this.counterState
+      this.componentHTML.querySelector(`.counter-value`).innerHTML = this.counterState
     });
 
   }

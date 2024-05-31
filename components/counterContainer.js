@@ -14,10 +14,10 @@ class CounterContainer extends Component {
   `;
   }
 
-  js(componentDom) {
+  run() {
 
 
-    const container = componentDom.querySelector('.counter-container')
+    const container = this.componentHTML.querySelector('.counter-container')
     for (let i = 1; i <= 5; i++) { Counter.insertInto(container); }
 
   }

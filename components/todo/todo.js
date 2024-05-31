@@ -1,6 +1,7 @@
 import { Component } from '../../component.js';
 // @ts-ignore
 import html from './todo.html';
+import { DeleteButton } from './deleteButton.js';
 
 class ToDoApp extends Component {
   //toDos = [];
@@ -30,20 +31,13 @@ class ToDoApp extends Component {
       throw 'toDo already exists'
     }
 
-    /*delete Button */
-    const deleteButton = document.createElement('button');
-    const deleteButtonText = document.createTextNode('X');
-    deleteButton.appendChild(deleteButtonText);
-    deleteButton.addEventListener('click', (event) => {
-      const itemToBeDeleted = deleteButton.closest('li');
-      itemToBeDeleted?.remove();
-    })
-
     /*List Element */
     const li = document.createElement('li');
     const t = document.createTextNode(text);
     li.appendChild(t);
-    li.appendChild(deleteButton);
+
+    /*Delete Button on each li */
+    DeleteButton.insertInto(li)
 
     /*attach List Element to List */
     const toDoList = this.componentHTML.querySelector('.todo-list');
