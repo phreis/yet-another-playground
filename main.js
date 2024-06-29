@@ -7,12 +7,25 @@ import { ToDoApp } from "./components/todo/todo.js";
 const mainContent = document.querySelector('.main-content')
 
 //creates two independent counter instances
-//mainContent && Counter.insertInto(mainContent)
-//mainContent && Counter.insertInto(mainContent)
+mainContent && Counter.insertInto(mainContent)
+mainContent && Counter.insertInto(mainContent)
 
 //ceates one CounterContainer (which creates a number of independet counter inside itself)
 mainContent && CounterContainer.insertInto(mainContent, { caption: 'I am a container!' })
 
 //.
-mainContent && CounterOuterStateContainer.insertInto(mainContent, { caption: 'I am a container which holds my childrens states' })
+
+/* window.addEventListener('hashchange', (ev) => {
+  console.log('location: ', location.hash)
+  switch (location.hash) {
+    case ('#counter'):
+      mainContent && CounterOuterStateContainer.insertInto(mainContent, { caption: 'I am a container which holds my childrens states' })
+      break;
+    case ('#todo'):
+      mainContent && ToDoApp.insertInto(mainContent)
+      break;
+  }
+}) */
+
+//mainContent && CounterOuterStateContainer.insertInto(mainContent, { caption: 'I am a container which holds my childrens states' })
 mainContent && ToDoApp.insertInto(mainContent)

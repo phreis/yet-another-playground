@@ -17,8 +17,13 @@ class Counter extends Component {
   }
 
   run() {
+
+
+
     const btn1 = this.componentHTML.querySelector('.button')
-    btn1.addEventListener('click', () => { this.componentHTML.querySelector(`.counter-value`).innerHTML = ++this.counterState });
+    btn1.addEventListener('click', () => {
+      this.componentHTML.querySelector(`.counter-value`).innerHTML = ++this.counterState
+    });
 
   }
 }

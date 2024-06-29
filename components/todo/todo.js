@@ -49,6 +49,10 @@ class ToDoApp extends Component {
   }
 
   run() {
+    /*     window.addEventListener('hashchange', (ev) => {
+          console.log('hashChange: ', ev)
+          console.log('location: ', location.hash)
+        }) */
     const form = this.componentHTML.querySelector('.todo-form');
     form.addEventListener('submit', (event) => {
 
