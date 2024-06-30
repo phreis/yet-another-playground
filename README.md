@@ -2,7 +2,7 @@
 
 ## Purpose
 
-to tinker around with mostly vanilla JavaScript and CSS.
+to tinker around with mostly vanilla JavaScript and CSS..
 
 ## Usage
 
