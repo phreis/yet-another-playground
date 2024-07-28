@@ -42,13 +42,8 @@ class Component {
     div.innerHTML = cmpInstance.html();
 
 
-
     //Instead of .innerHTML, use .insertAdjacentHTML to preserve event listeners
     cmpInstance.componentHTML = target.insertAdjacentElement('beforeend', div);
-
-
-
-
 
     //excecutes the js defined in the concrete component ()
     cmpInstance.run();

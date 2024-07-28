@@ -1,17 +1,23 @@
+import { JSDOM } from 'jsdom';
+
+const { window } = new JSDOM('');
+const { document, navigator } = window;
+
+global.window = window;
+global.document = document;
+global.navigator = navigator;
+
 import { Counter } from "./components/counter.js";
 import { CounterContainer } from "./components/counterContainer.js";
 import { CounterOuterState } from "./components/counterOuterState.js";
 import { CounterOuterStateContainer } from "./components/counterOuterStateContainer.js";
-import { ToDoApp } from "./components/todo/todo.js";
-import { HelloWorld } from "./webcomponents/helloWorld.js";
-import { CounterWc } from "./webcomponents/counterWc.js"
-import { CounterWcContainer } from "./webcomponents/counterWcContainer.js";
+//import { ToDoApp } from "./components/todo/todo.js";
 
-//const mainContent = document.querySelector('.main-content')
+const mainContent = document.querySelector('.main-content')
 
 //creates two independent counter instances
-/* mainContent && Counter.insertInto(mainContent)
-mainContent && Counter.insertInto(mainContent) */
+mainContent && Counter.insertInto(mainContent)
+mainContent && Counter.insertInto(mainContent)
 
 //ceates one CounterContainer (which creates a number of independet counter inside itself)
 //mainContent && CounterContainer.insertInto(mainContent, { caption: 'I am a container!' })
@@ -32,8 +38,3 @@ mainContent && Counter.insertInto(mainContent) */
 
 //mainContent && CounterOuterStateContainer.insertInto(mainContent, { caption: 'I am a container which holds my childrens states' })
 //mainContent && ToDoApp.insertInto(mainContent)
-
-//register Web Components
-customElements.define('hello-world', HelloWorld);
-customElements.define('counter-wc', CounterWc);
-customElements.define('counter-wc-container', CounterWcContainer);

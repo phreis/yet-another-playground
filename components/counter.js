@@ -17,14 +17,18 @@ class Counter extends Component {
   }
 
   run() {
-
-
-
     const btn1 = this.componentHTML.querySelector('.button')
     btn1.addEventListener('click', () => {
       this.componentHTML.querySelector(`.counter-value`).innerHTML = ++this.counterState
     });
-
+  }
+  
+  getJs() {
+    const componentHTML = document.querySelector(`#${this.id}`);
+    const btn1 = componentHTML.querySelector('.button')
+    btn1.addEventListener('click', () => {
+      componentHTML.querySelector(`.counter-value`).innerHTML = ++this.counterState
+    });
   }
 }
 
