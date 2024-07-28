@@ -6,6 +6,10 @@ import { ToDoApp } from "./components/todo/todo.js";
 import { HelloWorld } from "./webcomponents/helloWorld.js";
 import { CounterWc } from "./webcomponents/counterWc.js"
 import { CounterWcContainer } from "./webcomponents/counterWcContainer.js";
+import { HelloTs } from "./hello-ts.ts"
+
+//HelloTs()
+
 
 //const mainContent = document.querySelector('.main-content')
 

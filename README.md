@@ -2,7 +2,7 @@
 
 ## Purpose
 
-to tinker around with mostly vanilla JavaScript and CSS..
+to tinker around with mostly vanilla JavaScript, CSS and Web Components.
 
 ## Usage
 
@@ -19,3 +19,7 @@ to tinker around with mostly vanilla JavaScript and CSS..
 Starts a local development server. On each file change, the affected file(s) are rebuild into the bundle. The browser automatically refreshes.
 
 Open [http://localhost:8080](http://localhost:8080) in your browser.
+
+### Recommendations
+
+VS Code extension [es6-string-html](https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html). Adds syntax highlight support for code, placed in es6 multiline strings.
