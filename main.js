@@ -8,6 +8,9 @@ import { CounterWc } from "./webcomponents/counterWc.js"
 import { CounterWcContainer } from "./webcomponents/counterWcContainer.js";
 import { HelloTs } from "./hello-ts.ts"
 
+
+//just do test Typescript integration
+
 //HelloTs()
 
 

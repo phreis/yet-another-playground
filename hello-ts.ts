@@ -1,6 +1,6 @@
 function HelloTs() {
-    let message: string = 'Hello, World!';
-    console.log(message);
+  let message: string = 'Hello, World from Typescript!';
+  console.log(message);
 }
 
-export {HelloTs}
+export { HelloTs };
