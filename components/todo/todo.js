@@ -1,6 +1,6 @@
 import { Component } from '../../component.js';
 // @ts-ignore
-import html from './todo.html';
+//import html from './todo.html';
 import { DeleteButton } from './deleteButton.js';
 
 class ToDoApp extends Component {
@@ -12,17 +12,17 @@ class ToDoApp extends Component {
   }
 
   html() {
-    /*     return `
-    <form class='todo-form' >
-        <input name='todo' class='todo-input'></input>
-        <input type='submit' value='Add ToDo'></input>
-    </form>
-    <ul class='todo-list'>
+    return `
+        <form class='todo-form' >
+            <input name='todo' class='todo-input'></input>
+            <input type='submit' value='Add ToDo'></input>
+        </form>
+        <ul class='todo-list'>
 
 
-    </ul>
-    `; */
-    return html;
+        </ul>
+        `;
+    //return html;
   }
 
   addToDo(text) {
@@ -37,7 +37,7 @@ class ToDoApp extends Component {
     li.appendChild(t);
 
     /*Delete Button on each li */
-    DeleteButton.insertInto(li)
+    DeleteButton.insertInto(li, this.toDos)
 
     /*attach List Element to List */
     const toDoList = this.componentHTML.querySelector('.todo-list');

@@ -1,4 +1,4 @@
-import { Component } from "../../component";
+import { Component } from "../../component.js";
 
 
 class DeleteButton extends Component {
@@ -15,6 +15,7 @@ class DeleteButton extends Component {
   }
 
   run() {
+    console.log('props:', this.props)
     const deleteButton = this.componentHTML.querySelector('.delete-button')
     deleteButton.addEventListener('click', (event) => {
       const itemToBeDeleted = deleteButton.closest('li');
