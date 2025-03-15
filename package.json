@@ -6,9 +6,10 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "esbuild main.js --bundle --loader:.html=text --outdir=./build --watch",
+    "build": "esbuild main.js --bundle --loader:.html=text --loader:.css=text --outdir=./build --watch",
     "_build": "node esbuild.config.js",
-    "dev": "./node_modules/.bin/live-server & pnpm build"
+    "_dev": "./node_modules/.bin/live-server & pnpm build",
+    "dev": "./node_modules/.bin/live-server"
   },
   "keywords": [],
   "author": "",

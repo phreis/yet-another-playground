@@ -1,25 +1,25 @@
-import { Counter } from "./components/counter.js";
+import { Counter } from './components/counter.js';
 //import { CounterContainer } from "./components/counterContainer.js";
 //import { CounterOuterState } from "./components/counterOuterState.js";
 //import { CounterOuterStateContainer } from "./components/counterOuterStateContainer.js";
-import { ToDoApp } from "./components/todo/todo.js";
+import { ToDoApp } from './components/todo/todo.js';
 //import { HelloWorld } from "./webcomponents/helloWorld.js";
 //import { CounterWc } from "./webcomponents/counterWc.js"
 //import { CounterWcContainer } from "./webcomponents/counterWcContainer.js";
 //import { HelloTs } from "./hello-ts.ts"
 
-
 //just do test Typescript integration
 
 //HelloTs()
 
-
-
-const mainContent = document.querySelector('.main-content')
+const mainContent = document.querySelector('.main-content');
 
 //creates two independent counter instances
-mainContent && Counter.insertInto(mainContent)
-mainContent && Counter.insertInto(mainContent)
+mainContent &&
+  Counter.insertInto(mainContent, {
+    style: `background: #ffe7e8; border: 2px solid tomato; padding: 10px; margin: 0px;`,
+  });
+mainContent && Counter.insertInto(mainContent);
 
 //ceates one CounterContainer (which creates a number of independet counter inside itself)
 //mainContent && CounterContainer.insertInto(mainContent, { caption: 'I am a container!' })
@@ -39,7 +39,7 @@ mainContent && Counter.insertInto(mainContent)
 }) */
 
 //mainContent && CounterOuterStateContainer.insertInto(mainContent, { caption: 'I am a container which holds my childrens states' })
-mainContent && ToDoApp.insertInto(mainContent)
+mainContent && ToDoApp.insertInto(mainContent);
 
 //register Web Components
 //customElements.define('hello-world', HelloWorld);

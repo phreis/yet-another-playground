@@ -1,6 +1,8 @@
 import { Component } from '../../component.js';
 // @ts-ignore
-//import html from './todo.html';
+import html from './todo.html';
+// @ts-ignore
+import css from './todo.css';
 import { DeleteButton } from './deleteButton.js';
 
 class ToDoApp extends Component {
@@ -8,27 +10,18 @@ class ToDoApp extends Component {
   constructor() {
     super();
     this.toDos = [];
-
+  }
+  css() {
+    return css;
   }
 
   html() {
-    return `
-        <form class='todo-form' >
-            <input name='todo' class='todo-input'></input>
-            <input type='submit' value='Add ToDo'></input>
-        </form>
-        <ul class='todo-list'>
-
-
-        </ul>
-        `;
-    //return html;
+    return html;
   }
 
   addToDo(text) {
-
     if (this.toDos.includes(text)) {
-      throw 'toDo already exists'
+      throw 'toDo already exists';
     }
 
     /*List Element */
@@ -37,13 +30,11 @@ class ToDoApp extends Component {
     li.appendChild(t);
 
     /*Delete Button on each li */
-    DeleteButton.insertInto(li, this.toDos)
+    DeleteButton.insertInto(li, this.toDos);
 
     /*attach List Element to List */
     const toDoList = this.componentHTML.querySelector('.todo-list');
     toDoList.appendChild(li);
-
-
 
     this.toDos.push(text);
   }
@@ -55,7 +46,6 @@ class ToDoApp extends Component {
         }) */
     const form = this.componentHTML.querySelector('.todo-form');
     form.addEventListener('submit', (event) => {
-
       event.preventDefault();
 
       const input = this.componentHTML.querySelector('input[name="todo"]');
