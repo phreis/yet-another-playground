@@ -34,8 +34,8 @@ class Component {
    * @param {Element} target Parent element of the component
    * @param {Object} [props] Components properties
    */
-  static insertInto(target, props = {}) {
-    const cmpInstance = new this();
+  insertInto(target, props = {}) {
+    const cmpInstance = this;
 
     cmpInstance.props = props;
 

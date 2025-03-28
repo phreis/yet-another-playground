@@ -24,16 +24,6 @@ class Counter extends Component {
         .counterState;
     });
   }
-
-  getJs() {
-    const componentHTML = document.querySelector(`#${this.id}`);
-
-    const btn1 = componentHTML.querySelector('.button');
-    btn1.addEventListener('click', () => {
-      componentHTML.querySelector(`.counter-value`).innerHTML = (++this
-        .counterState).toString();
-    });
-  }
 }
 
 export { Counter };

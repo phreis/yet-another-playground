@@ -8,8 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "esbuild main.js --bundle --loader:.html=text --loader:.css=text --outdir=./build --watch",
     "_build": "node esbuild.config.js",
-    "_dev": "./node_modules/.bin/live-server & pnpm build",
-    "dev": "./node_modules/.bin/live-server"
+    "dev": "./node_modules/.bin/live-server & pnpm build"
   },
   "keywords": [],
   "author": "",
