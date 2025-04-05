@@ -3,13 +3,16 @@ import { Component } from '../../component.js';
 import html from './todo.html';
 // @ts-ignore
 import css from './todo.css';
-import { DeleteButton } from './deleteButton.js';
+
+import { ToDoItem } from './todoItem.js';
+
+import Dexie from 'dexie';
 
 class ToDoApp extends Component {
-  //toDos = [];
   constructor() {
     super();
-    this.toDos = [];
+
+    this.toDoItems = [];
   }
   css() {
     return css;
@@ -20,23 +23,19 @@ class ToDoApp extends Component {
   }
 
   addToDo(text) {
-    if (this.toDos.includes(text)) {
-      throw 'toDo already exists';
+    if (this.toDoItems.find((item) => item.props.text === text)) {
+      throw `toDo ${text} already exists`;
     }
+    const newItem = new ToDoItem();
+    newItem.insertInto(this.componentHTML.querySelector('.todo-list'), {
+      toDoList: this.componentHTML.querySelector('.todo-list'),
+      text: text,
+      onDelete: (itemToBeDeleted) => {
+        this.toDoItems = this.toDoItems.filter((itm) => itm != itemToBeDeleted);
+      },
+    });
 
-    /*List Element */
-    const li = document.createElement('li');
-    const t = document.createTextNode(text);
-    li.appendChild(t);
-
-    /*Delete Button on each li */
-    DeleteButton.insertInto(li, this.toDos);
-
-    /*attach List Element to List */
-    const toDoList = this.componentHTML.querySelector('.todo-list');
-    toDoList.appendChild(li);
-
-    this.toDos.push(text);
+    this.toDoItems.push(newItem);
   }
 
   run() {
@@ -56,6 +55,51 @@ class ToDoApp extends Component {
       }
 
       input.value = '';
+    });
+    const saveButton = this.componentHTML.querySelector('.todo-save');
+    saveButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      console.log('toDos to save:', this.toDoItems);
+      const toDos = this.toDoItems.map((item) => item.props.text);
+      console.log('toDos:', toDos);
+      // Save to IndexedDB
+      const db = new Dexie('ToDoDB');
+      db.version(1).stores({ todos: '++id,text' });
+      db.todos = db.table('todos');
+      db.todos
+        .bulkPut(toDos.map((text) => ({ text })))
+        .then(() => {
+          console.log('Todos saved to IndexedDB');
+        })
+        .catch((err) => {
+          console.error('Failed to save todos to IndexedDB:', err);
+        });
+      // Save to server
+      // fetch('/api/todos', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify(toDos),
+      // })
+      //     .then((response) => response.json())
+      //     .then((data) => {
+      //       console.log('Todos saved to server:', data);
+      //     })
+      //     .catch((err) => {
+      //       console.error('Failed to save todos to server:', err);
+      //     });
+    });
+    const loadButton = this.componentHTML.querySelector('.todo-load');
+    loadButton.addEventListener('click', (event) => {
+      const newtoDos = ['todo1', 'todo2', 'todo3'];
+      newtoDos.forEach((item) => {
+        try {
+          this.addToDo(item);
+        } catch (err) {
+          console.warn(err);
+        }
+      });
     });
   }
 }

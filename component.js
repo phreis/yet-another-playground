@@ -21,7 +21,7 @@ class Component {
    * @returns {String} CSS
    */
   css() {
-    return '<p>To be implemented in concrete component</p>';
+    return '';
   }
   /** Contains the JavaScript code which goes together with the component
    * @abstract to be implemented in concrete component
@@ -44,9 +44,10 @@ class Component {
     div.setAttribute('id', cmpInstance.id);
     div.setAttribute('style', cmpInstance.props.style || '');
 
-    div.innerHTML = `<style>#${
-      cmpInstance.id
-    } {${cmpInstance.css()}}</style>${cmpInstance.html()}`;
+    const styleTag =
+      cmpInstance.css() &&
+      `<style>#${cmpInstance.id} {${cmpInstance.css()}}</style>`;
+    div.innerHTML = `${styleTag || ''}${cmpInstance.html()}`;
 
     //Instead of .innerHTML, use .insertAdjacentHTML to preserve event listeners
     cmpInstance.componentHTML = target.insertAdjacentElement('beforeend', div);
